@@ -114,6 +114,20 @@ strong a:hover{
     color:yellow;
     font-size: 20px;
 }
+.t2{
+    margin-top: 40px;
+    background: darkblue;
+    text-align: center;
+    font-size: 32px;
+}
+.t2 a{
+    text-decoration: none;
+    color: white;
+}
+.t2:hover{
+    background:green;
+    color: fuchsia;
+}
 		</style>
     </head>
     <body>
@@ -207,15 +221,13 @@ fichero departamento.xml. </td>
 			<td><a href="">
 			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
 		  </tr>
-		   <tr>
-			<td>9. Aplicación resumen MtoDeDepartamentosTema4</td>
-			<td><a  href="indexMtoDepartamento.php" >
-			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
-			<td><a href="">
-			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
-		  </tr>
-		  
 		</table>
+                <table class="t2">
+                        <tr>
+                            <th><a href="../212MtoDepartamentosTema4/codigoPhp/mtoDepartamentos.php">MANTENIMIENTO DEPARTAMENTOS TEMA4</a></th>
+                            <!--<th><a href="../LoginLogoffTema5/codigoPHP/LogIn.php">APLICACIÓN TEMA5</a></th>-->
+                        </tr>
+                </table>
         </main>
          <footer>
         2021-2022 I.E.S. Los sauces. ©Todos los derechos reservados. <strong> <a href="http://daw212.sauces.local/">Johanna Herrero Pozuelo</a></strong>
