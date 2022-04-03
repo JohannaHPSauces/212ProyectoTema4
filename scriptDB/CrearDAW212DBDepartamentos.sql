@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS DB212DWESProyectoTema4.T01_Usuario(
 CREATE TABLE IF NOT EXISTS DB212DWESProyectoTema4.T02_Departamento(
     T02_CodDepartamento varchar(3) PRIMARY KEY,
     T02_DescDepartamento varchar(255) NOT NULL,
-    T02_FechaCreacionDepartamento int NOT NULL,
+    T02_FechaCreacionDepartamento int NULL,
     T02_VolumenNegocio float NULL,
     T02_FechaBajaDepartamento int NULL
 )engine=innodb;

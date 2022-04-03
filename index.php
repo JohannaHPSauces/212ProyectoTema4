@@ -44,7 +44,11 @@ h2:nth-of-type(2) a{
 }
 /*caja debajo de titulo*/
 			
-			
+.ver, .play{
+    margin-left:25px;
+    display: inline-block;
+}
+
 table {
 	margin: 4rem auto;
 	table-layout: fixed;
@@ -67,15 +71,6 @@ th{
         background: darkorchid;
         border: 4px solid black;
 }
-.ver{
-        margin-top:2px;
-        margin-left:25px;
-}
-.play{
-        margin-top:2px;
-        margin-left:30px;
-}
-
 footer{
        background: blueviolet;
        border-radius: 5px 5px 5px 5px;
@@ -128,8 +123,98 @@ strong a:hover{
 	<div class="caja1"></div>
 	</header> 
         <main>
+		  <table class="t1">
+                <tr>
+                    <th> Crear BD Desarrollo<a href="mostrarCodigo/mostrarSCreacion.php" ><img src="../images/codigo.png" class="ver" width="40" height="40"></a></th>
+                    <th>Cargar Desarrollo<a href="mostrarCodigo/mostrarSCarga.php"><img src="../images/codigo.png" class="ver" width="40" height="40"></a></th>
+                    <th>Borrar Desarrollo<a href="mostrarCodigo/mostrarSBorrado.php"><img src="../images/codigo.png" class="ver" width="40" height="40"></a></th>
+                </tr>
+                <tr>
+                    <th>Crear BD Explotacion<a href=""><img src="../images/ver.png" class="ver" width="40" height="40"></a><a href="" ><img src="../images/codigo.png" class="play" width="30" height="30" ></td></th>
+                    <th>Cargar Explotacion<a href=""><img src="../images/ver.png" class="ver" width="40" height="40"></a><a href=""><img src="../images/codigo.png" class="play" width="30" height="30" ></td></th>
+                    <th>Borrar Explotacion<a href=""><img src="../images/ver.png" class="ver" width="40" height="40"></a><a href=""><img src="../images/codigo.png" class="play" width="30" height="30" ></td></th>
+                    
+                </tr>
+            </table>
 		<table class="default">
-                   
+                    <tr class="c1">
+                      
+			<th class="p1"></th>
+                        <td>PDO</td>
+                        <td>Ver codigo PDO </td>
+                        <td>MYSQL</td>
+			<td>Ver codigo MYSQL</td>
+                    </tr>
+		  <tr class="c1">
+			<th class="p1">1. Conexión a la base de datos con la cuenta usuario y tratamiento de errores.</th>
+                        <td><a href="codigoPhp/Ejercicio01PDO.php"  >
+			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
+                        <td><a href="mostrarCodigo/mostrar01PDO.php" >
+			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
+                        <td><a href="codigoPhp/Ejercicio01MYSQL.php"  >
+			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
+                        <td><a href="mostrarCodigo/mostrar01MYSQL.php" >
+			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
+		  </tr>
+		  <tr>
+			<th>2. Mostrar el contenido de la tabla Departamento y el número de registros.</th>
+                        <td><a  href="codigoPhp/Ejercicio02PDO.php" >
+                            <img src="../images/ver.png" class="ver" width="40" height="40" ></td>
+                        <td><a href="mostrarCodigo/mostrar02PDO.php" >
+                            <img src="../images/codigo.png" class="play" width="30" height="30" ></td>
+		  </tr>
+		  <tr>
+			<th>3. Formulario para añadir un departamento a la tabla Departamento con validación de entrada y control de errores.</th>
+                        <td><a  href="codigoPhp/Ejercicio03PDO.php" >
+			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
+			<td><a href="mostrarCodigo/mostrar03PDO.php" >
+			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
+		  </tr>
+		  <tr>
+			<td>4. Formulario de búsqueda de departamentos por descripción (por una parte del campo DescDepartamento, si el usuario no pone nada deben aparecer todos los departamentos).</td>
+                        <td><a  href="codigoPhp/Ejercicio04PDO.php" >
+			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
+			<td><a href="mostrarCodigo/mostrar04PDO.php" >
+			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
+		  </tr>
+		  <tr>
+			<td>5. Pagina web que añade tres registros a nuestra tabla Departamento utilizando tres instrucciones insert y una transacción, de tal forma que se añadan los tres registros o no se añada ninguno.
+</td>			<td><a  href="codigoPhp/Ejercicio05PDO.php" >
+			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
+			<td><a href="mostrarCodigo/mostrar05PDO.php" >
+			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
+		  </tr>
+		  <tr>
+			<td>6. Pagina web que cargue registros en la tabla Departamento desde un array departamentosnuevos utilizando una consulta preparada</td>
+			<td><a  href="codigoPhp/Ejercicio06PDO.php" >
+			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
+			<td><a href="mostrarCodigo/mostrar06PDO.php" >
+			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
+		  </tr>
+		  <tr>
+			<td>7. Página web que toma datos (código y descripción) de un fichero xml y los añade a la tabla Departamento de nuestra base de datos. (IMPORTAR). El fichero importado se encuentra en el
+directorio .../tmp/ del servidor.</td>
+			<td><a  href="codigoPHP/E6.php" >
+			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
+			<td><a  href="">
+			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
+		  </tr>
+		   <tr>
+			<td>8. Página web que toma datos (código y descripción) de la tabla Departamento y guarda en un
+fichero departamento.xml. </td>
+			<td><a  href="codigoPHP/E7.php" >
+			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
+			<td><a href="">
+			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
+		  </tr>
+		   <tr>
+			<td>9. Aplicación resumen MtoDeDepartamentosTema4</td>
+			<td><a  href="indexMtoDepartamento.php" >
+			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
+			<td><a href="">
+			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
+		  </tr>
+		  
 		</table>
         </main>
          <footer>
