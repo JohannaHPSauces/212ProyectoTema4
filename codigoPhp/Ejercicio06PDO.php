@@ -33,14 +33,14 @@
             $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             //Desactiva el modo 'autocommit'. Mientras el modo 'autocommit' esté desactivado, no se consignarán los cambios realizados en la base de datos
             $miDB->beginTransaction();
+            $consultaB3=$miDB->prepare("DELETE FROM T02_Departamento WHERE T02_CodDepartamento='ODO'");
             
-            //Insertar 1
-            $sql = <<<EOD
+            $consulta = <<<EOD
                         INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_VolumenNegocio) VALUES 
                         (:CodDepartamento, :DescDepartamento, :VolumenNegocio);
                     EOD;
             //Preparamos la consulta
-            $consulta = $miDB ->prepare($sql);
+            $resultadoConsulta = $miDB ->prepare($consulta);
                 
            
             //Recorremos los registros que vamos a insertar    
@@ -48,7 +48,7 @@
                     $parametros = [":CodDepartamento" => $departamento["CodDepartamento"], 
                                    ":DescDepartamento" => $departamento["DescDepartamento"], 
                                    ":VolumenNegocio" => $departamento["VolumenNegocio"]];
-                    $consulta->execute($parametros);//Ejecutamos la consulta
+                    $resultadoConsulta->execute($parametros);//Ejecutamos la consulta
             }
             
             //Haceos commit para subir los cambios

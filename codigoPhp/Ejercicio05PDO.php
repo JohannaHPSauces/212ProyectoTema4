@@ -29,6 +29,15 @@
             //Desactiva el modo 'autocommit'. Mientras el modo 'autocommit' esté desactivado, no se consignarán los cambios realizados en la base de datos
             $miDB->beginTransaction();
             
+            //BORRAR SI EXISTEN ESOS CODIGOS
+            $consultaB1=$miDB->prepare("DELETE FROM T02_Departamento WHERE T02_CodDepartamento='COC'");
+            $consultaB2=$miDB->prepare("DELETE FROM T02_Departamento WHERE T02_CodDepartamento='FLO'");
+            $consultaB3=$miDB->prepare("DELETE FROM T02_Departamento WHERE T02_CodDepartamento='ODO'");
+            
+            $consultaB1->execute();
+            $consultaB2->execute();       
+            $consultaB3->execute();
+            
             //Insertar 1
             $consulta1=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_VolumenNegocio) VALUES ('COC', 'Departamento de cocina', 7)");
             
@@ -43,7 +52,7 @@
             $consulta2->execute();       
             $consulta3->execute();
             
-            //Haceos commit para subir los cambios
+            //Hacemos commit para subir los cambios
             $miDB->commit();
             
             //Mensaje de todo correcto
