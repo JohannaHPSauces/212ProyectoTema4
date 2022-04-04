@@ -82,12 +82,13 @@
             //$entradaOK=false;
             $descDepartamento=null;
         }
-        if(!is_null($descDepartamento)){
+        if(!is_null($descDepartamento)){//Si se ha buscado algo, buscamos a ver si esta en la tabla departamento
             $consulta = "SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%".$descDepartamento."%'";
         }else{
-            //Mostrado de todas la filas
+            //Si no se ha buscado nada, muestro la tabla departamento
             $consulta = "SELECT * FROM T02_Departamento";
         }
+            //SI SE HA BUSCADO UN DEPARTAMENTO Y EXISTE
             if($entradaOK){
                 try {  
                     //Establecer una conexión con la base de datos 
