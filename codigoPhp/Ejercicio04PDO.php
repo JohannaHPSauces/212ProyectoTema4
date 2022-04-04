@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Ejercicio 3</title>
-        <meta charset="UTF-8">
+        <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
         <style>
             h3{
                 font-weight: bold;
@@ -54,71 +54,88 @@
         //Importamos la configuracion a la base de datos
         require_once '../config/confDBPDO.php'; 
         
-        if(isset($_REQUEST['volver'])){ //Si el usuario pulsa cancelar
+        //SI EL USUARIO HA DADO AL BOTON CANCELAR LE DEVUELVE AL INDEX
+        if(isset($_REQUEST['volver'])){ 
             header('Location: ../index.php');// le manda a la pagina del programa
             exit;
         }
-         echo "<h3>*Formulario de búsqueda de departamentos por descripción (por una parte del campo DescDepartamento, si el usuario no pone nada deben aparecer todos los departamentos).*</h3>";   
+        //Definicion de variable de entrada
+        $entradaOK=true;
         
-         //Array respuestas
-        $aErrores = [
-            'DescDepartamento' => null];
+        //Array para guardar los errores
+        $aErrores = ['DescDepartamento' => null];
         
-            try {
-               //Establecer una conexión con la base de datos 
-                $miDB = new PDO(HOST,USER,PASSWORD);                            
-                $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-                
-                //Si ha dado al boton de buscar
-                if (isset($_REQUEST['enviar'])) {                                      
-                    
-                    //consulta buscar el departamento
-                    $consulta = "SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%{$_REQUEST['DescDepartamento']}%';";     //Guardamos en la variable la consulta que queremos hacer
+        echo "<h3>*Formulario de búsqueda de departamentos por descripción (por una parte del campo DescDepartamento, si el usuario no pone nada deben aparecer todos los departamentos).*</h3>";   
+        
+        //SI SE HA PULSADO EL BOTON DE ENVIAR
+        if (isset($_REQUEST['enviar'])) { 
+            $aErrores['DescDepartamento']= validacionFormularios::comprobarAlfabetico($_REQUEST['DescDepartamento'], 100, 1, 1);
+
+            $descDepartamento= $_REQUEST['DescDepartamento'];
+                foreach($aErrores as $campo =>$error){//Recorro el array de errores buscando si hay
+                    if($error ==null){// Si hay algun error 
+                        $entradaOk=false; //Ponemos la entrada a false
+                        $_REQUEST[$campo]="";//Vacia los campos
+                    }
+                }
+        }else{
+            //$entradaOK=false;
+            $descDepartamento=null;
+        }
+        if(!is_null($descDepartamento)){
+            $consulta = "SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%".$descDepartamento."%'";
+        }else{
+            //Mostrado de todas la filas
+            $consulta = "SELECT * FROM T02_Departamento";
+        }
+            if($entradaOK){
+                try {  
+                    //Establecer una conexión con la base de datos 
+                    $miDB = new PDO(HOST,USER,PASSWORD);                            
+                    $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+
                     //Preparamos la consulta
                     $resultadoConsulta = $miDB->prepare($consulta); 
                     //Ejecutamos la consulta
                     $resultadoConsulta->execute();
-                    
-                    //Si no ha buscado ningun departamento mostramos todos
-                    if($resultadoConsulta->rowCount()>0){
-                        echo "<table>";
-                        echo "<tr>";
-                            echo "<th> CODIGO DEPARTAMENTO</th>";
-                            echo "<th> DESCRIPCION DEPARTAMENTO</th>";
-                            echo "<th> VOLUMEN DEPARTAMENTO </th>";
-                        echo "</tr>";
 
-                        $oDepartamento = $resultadoConsulta->fetchObject();  //obtiene la siguiente fila y la devuelve como objeto. 
-                        while ($oDepartamento){   
+                        //Tanto si ha encontrado el departamento como si no se ha encontrado, mostramos la tabla
+                        if($resultadoConsulta->rowCount()>=0){
+                            echo "<table>";
                             echo "<tr>";
-                            echo "<td><p>$oDepartamento->T02_CodDepartamento </td>";           
-                            echo "<td> $oDepartamento->T02_DescDepartamento </td>";
-                            echo "<td> $oDepartamento->T02_VolumenNegocio </td></p>";
+                                echo "<th> CODIGO DEPARTAMENTO</th>";
+                                echo "<th> DESCRIPCION DEPARTAMENTO</th>";
+                                echo "<th> VOLUMEN DEPARTAMENTO </th>";
                             echo "</tr>";
-                            $oDepartamento = $resultadoConsulta->fetchObject();
-                        } 
-                    }else{
-                        //Si el departamento no existe le decimos que no existe
-                       echo "<p style='background-color: red;'>NO EXISTE ESE DEPARTAMENTO!!</p><br>";
-                    }
-                }  
-            }catch (PDOException $excepcion){
-                    $codigoError=$excepcion->getCode();//Obtenemos y guardamos el codigo del error
-                    $mensajeError=$excepcion->getMessage();//Obtenemos y guardamos el mensaje de error
 
-                    echo "<p style='background-color:red;'>Codigo de error: $codigoError</p>";   
-                    echo "<br>";
-                    echo "<p style='background-color:red;'>Mensaje de error: $mensajeError </p>";
-                } finally {
-                    //Cerramos conexion
-                    unset($miDB);
+                            $oDepartamento = $resultadoConsulta->fetchObject();  //obtiene la siguiente fila y la devuelve como objeto. 
+                            while ($oDepartamento){   
+                                echo "<tr>";
+                                echo "<td><p>$oDepartamento->T02_CodDepartamento </td>";           
+                                echo "<td> $oDepartamento->T02_DescDepartamento </td>";
+                                echo "<td> $oDepartamento->T02_VolumenNegocio </td></p>";
+                                echo "</tr>";
+                                $oDepartamento = $resultadoConsulta->fetchObject();
+                            } 
+                        }
+                    }catch (PDOException $excepcion){
+                        $codigoError=$excepcion->getCode();//Obtenemos y guardamos el codigo del error
+                        $mensajeError=$excepcion->getMessage();//Obtenemos y guardamos el mensaje de error
+
+                        echo "<p style='background-color:red;'>Codigo de error: $codigoError</p>";   
+                        echo "<br>";
+                        echo "<p style='background-color:red;'>Mensaje de error: $mensajeError </p>";
+                    }finally {
+                        //Cerramos conexion
+                        unset($miDB);
+                    }
                 }
             ?>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <fieldset>
                         <h3>BUSCAR DEPARTAMENTO</h3>
                         <label>Descripción Departamento </label>
-                        <input type = "text" name = "DescDepartamento" value="<?php echo(isset($_REQUEST['DescDepartamento']) ? $_REQUEST['DescDepartamento'] : null); ?>"> <?php echo($aErrores['DescDepartamento']!=null ? "<span style='color:red'>".$aErrores['DescDepartamento']."</span>" : null); ?>
+                        <input type = "text" name = "DescDepartamento" value="<?php echo(isset($_REQUEST['DescDepartamento']) ? $_REQUEST['DescDepartamento'] : null); ?>"> <br><?php echo($aErrores['DescDepartamento']!=null ? "<span style='color:red'>".$aErrores['DescDepartamento']."</span>" : null); ?>
                         <br><br>
 
                         <input type="submit" name="enviar" value="Buscar">

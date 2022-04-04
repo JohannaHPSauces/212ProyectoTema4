@@ -20,7 +20,12 @@
         //Importamos la configuracion a la base de datos
         require_once '../config/confDBPDO.php';     
         
+        $aDepartamentos = [["CodDepartamento" => "PRO", "DescDepartamento" => "Departamento de programacion", "VolumenNegocio" => 12],
+                            ["CodDepartamento" => "PLA", "DescDepartamento" => "Departamento de plastica", "VolumenNegocio" => 20],
+                            ["CodDepartamento" => "MUS", "DescDepartamento" => "Departamento de musica", "VolumenNegocio" => 13]];
+                
         echo "<h3>*Pagina web que cargue registros en la tabla Departamento desde un array departamentosnuevos utilizando una consulta preparada*</h3>";   
+        //Departamentos a insertar
         
         try{
             $miDB = new PDO(HOST,USER,PASSWORD);
@@ -36,11 +41,7 @@
             //Preparamos la consulta
             $consulta = $miDB ->prepare($sql);
                 
-            //Departamentos a insertar
-            $aDepartamentos = [["CodDepartamento" => "PRO", "DescDepartamento" => "Departamento de programacion", "VolumenNegocio" => 12],
-                                   ["CodDepartamento" => "PLA", "DescDepartamento" => "Departamento de plastica", "VolumenNegocio" => 20],
-                                   ["CodDepartamento" => "MUS", "DescDepartamento" => "Departamento de musica", "VolumenNegocio" => 13]];
-                
+           
             //Recorremos los registros que vamos a insertar    
             foreach($aDepartamentos as $departamento){
                     $parametros = [":CodDepartamento" => $departamento["CodDepartamento"], 

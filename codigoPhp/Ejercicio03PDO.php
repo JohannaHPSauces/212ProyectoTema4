@@ -69,17 +69,12 @@
                        'VolumenNegocio' => null];
         
          //Array para respuestas del formulario
-        $aFormulario = [ 'CodDepartamento' => null,            
+        $aRespuestas = [ 'CodDepartamento' => null,            
                          'DescDepartamento' => null,
                         'VolumenNegocio' => null];
         
-         //Si se ha pulsado el boton de enviar 
+         //SI SE HA PULSADO EL BOTON DE EVIAR
         if (isset($_REQUEST['enviar'])) {
-            //Guardamos en las variables las respuestas del formulario
-            $CodDepartamento=$_REQUEST['CodDepartamento'];      
-            $DescDepartamento=$_REQUEST['DescDepartamento'];
-            $VolumenNegocio=$_REQUEST['VolumenNegocio'];
-            
             //Validamos las respuuestas con ayuda de la libreria de validacion
             $aErrores['CodDepartamento'] = validacionFormularios::comprobarAlfabetico($_REQUEST['CodDepartamento'], 3, 3, 1); 
             $aErrores['DescDepartamento'] = validacionFormularios::comprobarAlfabetico($_REQUEST['DescDepartamento'], 255, 1, 1); 
@@ -90,7 +85,7 @@
                     $miDB = new PDO(HOST,USER,PASSWORD);
                     $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                    $sql = "SELECT      T02_CodDepartamento from T02_Departamento where T02_CodDepartamento='{$_REQUEST['CodDepartamento']}'";
+                    $sql = "SELECT T02_CodDepartamento from T02_Departamento where T02_CodDepartamento='{$_REQUEST['CodDepartamento']}'";
                     $consulta = $miDB->prepare($sql);//Preparamos la consulta
                     $consulta->execute();//Ejecutamos la consulta
                     
@@ -115,16 +110,15 @@
                     }
             }
         }else{
-             //Si el formulario no esta completo  
+             //SI HA HABIDO ALGUN ERROR ENTRADA LA PONEMOS A FALSE Y MOSTRAMOS EL FORMULARIO
             $entradaOK = false;
         }
-        //Si el formulario estaba completo recogemos las respuestas
-        if($entradaOK) {                                        
-      
-            //Como es un array asociativo podemos recorrelo con estos indices
-            $aFormulario['CodDepartamento'] = strtoupper($_REQUEST['CodDepartamento']); //strtoupper devuelve el string con todos los caracteres alfabéticos convertidos a mayúsculas.
-            $aFormulario['DescDepartamento'] =$_REQUEST['DescDepartamento'];  //ucfirst devuelve una cadena con el primer caracter str en máyusculas, si el caracter es alfabético.
-            $aFormulario['VolumenNegocio'] = $_REQUEST['VolumenNegocio'];
+        //SI TODO HA IDO BIEN, RECOGEMOS LAS RESPUESTAS
+        if($entradaOK) {    
+            //Guardamos las respuestas
+            $aRespuestas['CodDepartamento'] = strtoupper($_REQUEST['CodDepartamento']); //strtoupper devuelve el string con todos los caracteres alfabéticos convertidos a mayúsculas.
+            $aRespuestas['DescDepartamento'] =$_REQUEST['DescDepartamento'];
+            $aRespuestas['VolumenNegocio'] = $_REQUEST['VolumenNegocio'];
             
             try {
                 //Establecer una conexión con la base de datos 
@@ -133,18 +127,18 @@
 
                 //consulta para insertar el nuevo departamento
                 $sql = <<<EOD
-                       INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_VolumenNegocio) VALUES 
-                            (:CodDepartamento, :DescDepartamento, :VolumenNegocio); 
+                       INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_VolumenNegocio)  
+                            VALUES (:CodDepartamento, :DescDepartamento, :VolumenNegocio); 
 EOD;
                 $consulta = $miDB->prepare($sql);//Preparamos la consulta
-                $parametros = [ ":CodDepartamento" => $aFormulario['CodDepartamento'],
-                                    ":DescDepartamento" => $aFormulario['DescDepartamento'],
-                                    ":VolumenNegocio" => $aFormulario['VolumenNegocio'] ];
+                $parametros = [ ":CodDepartamento" => $aRespuestas['CodDepartamento'],
+                                ":DescDepartamento" => $aRespuestas['DescDepartamento'],
+                                ":VolumenNegocio" => $aRespuestas['VolumenNegocio'] ];
                     
                 $consulta->execute($parametros);//Pasamos los parámetros a la consulta
                 echo "<p style='background-color:lime;'>CAMPO AÑADIDO CORRECTAMENTE</p>";
                 
-                    //consulta mostrar la tabla con el nuevo departamento
+                //consulta mostrar la tabla con el nuevo departamento
                 $consulta = "SELECT * FROM T02_Departamento";    //Guardo la consulta en una variable
                 $resultadoConsulta = $miDB->prepare($consulta);//Peparar la consulta
                 $resultadoConsulta->execute(); //Ejecutar la consulta
@@ -184,7 +178,7 @@ EOD;
                 } finally {
                     unset($miDB);
                 }
-        } else {  //Si el formulario no esta bien, lo volvera a rellenar
+        } else {  //SI EL FORMULARIO NO ESTA BIEN MOSTRAMOS EL FORMULARIO OTRA VEZ
             
             ?>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
