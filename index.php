@@ -137,7 +137,7 @@ strong a:hover{
 	<div class="caja1"></div>
 	</header> 
         <main>
-		  <table class="t1">
+		<table class="t1">
                 <tr>
                     <th> Crear BD Desarrollo<a href="mostrarCodigo/mostrarSCreacion.php" ><img src="../images/codigo.png" class="ver" width="40" height="40"></a></th>
                     <th>Cargar Desarrollo<a href="mostrarCodigo/mostrarSCarga.php"><img src="../images/codigo.png" class="ver" width="40" height="40"></a></th>
@@ -153,7 +153,7 @@ strong a:hover{
 		<table class="default">
                     <tr class="c1">
                       
-			<th class="p1"></th>
+			<th class="p1">Configuracion<a href="mostrarCodigo/mostrarConf.php" ><img src="../images/codigo.png" class="ver" width="40" height="40"></a></th>
                         <td>PDO</td>
                         <td>Ver codigo PDO </td>
                         <td>MYSQL</td>
@@ -216,9 +216,9 @@ directorio .../tmp/ del servidor.</td>
 		   <tr>
 			<td>8. Página web que toma datos (código y descripción) de la tabla Departamento y guarda en un
 fichero departamento.xml. </td>
-			<td><a  href="codigoPHP/E7.php" >
+                        <td><a  href="codigoPhp/Ejercicio08PDOJson.php" >
 			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
-			<td><a href="">
+			<td><a href="mostrarCodigo/mostrar08PDOJson.php" >
 			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
 		  </tr>
 		</table>
