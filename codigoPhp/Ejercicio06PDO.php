@@ -15,6 +15,7 @@
              * Created on: 02/04/2022
              * Pagina web que cargue registros en la tabla Departamento desde un array departamentosnuevos utilizando una consulta preparada
              */
+       
         //Importamos la libreria de validacion
         require_once '../core/210322ValidacionFormularios.php'; 
         //Importamos la configuracion a la base de datos

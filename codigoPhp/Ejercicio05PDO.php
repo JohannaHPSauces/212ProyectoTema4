@@ -15,6 +15,7 @@
              * Created on: 02/04/2022
              * Pagina web que añade tres registros a nuestra tabla Departamento utilizando tres instrucciones insert y una transacción, de tal forma que se añadan los tres registros o no se añada ninguno.
              */
+       
         //Importamos la libreria de validacion
         require_once '../core/210322ValidacionFormularios.php'; 
         //Importamos la configuracion a la base de datos
