@@ -51,13 +51,13 @@
             $consultaB3->execute();
             
             //Insertar 1
-            $consulta1=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES ('COC', 'Departamento de cocina',now(), 7)");
+            $consulta1=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES ('COC', 'Departamento de cocina',1565600000, 7)");
             
             //Insertar 2
-            $consulta2=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES ('FLO', 'Departamento de floristeria',now(), 9)"); 
+            $consulta2=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES ('FLO', 'Departamento de floristeria',1566600000, 9)"); 
             
             //Insertar 3
-            $consulta3=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES ('ODO', 'Departamento de odontologia',now(), 10)");
+            $consulta3=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES ('ODO', 'Departamento de odontologia',1567600000, 10)");
             
             //Ejecutamos las consultas
             $consulta1->execute();
@@ -84,11 +84,13 @@
                 echo "</tr>";
                 
                 $oDepartamento = $resultadoConsulta->fetchObject();  //obtiene la siguiente fila y la devuelve como objeto. 
-                while ($oDepartamento){   
+                while ($oDepartamento){  
+                    $fechaCreacionDepartamento=$oDepartamento->T02_FechaCreacionDepartamento;
+                    $date = date('d-m-Y H:i:s', $fechaCreacionDepartamento);
                     echo "<tr>";
                     echo "<td><p>$oDepartamento->T02_CodDepartamento </td>";           
                     echo "<td> $oDepartamento->T02_DescDepartamento </td>";
-                    echo "<td> $oDepartamento->T02_FechaCreacionDepartamento </td>";
+                    echo "<td> $date </td>";
                     echo "<td> $oDepartamento->T02_VolumenNegocio </td></p>";
                     echo "</tr>";
                     $oDepartamento = $resultadoConsulta->fetchObject();

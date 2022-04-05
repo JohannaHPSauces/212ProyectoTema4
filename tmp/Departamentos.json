@@ -1,0 +1,52 @@
+[
+    {
+        "CodDepartamento": "AAA",
+        "DescDepartamento": "EEEE",
+        "VolumenNegocio": "32"
+    },
+    {
+        "CodDepartamento": "BIO",
+        "DescDepartamento": "Departamento de Biologia",
+        "VolumenNegocio": "2.5"
+    },
+    {
+        "CodDepartamento": "CIE",
+        "DescDepartamento": "Departamento de ciencia",
+        "VolumenNegocio": "22"
+    },
+    {
+        "CodDepartamento": "COC",
+        "DescDepartamento": "Departamento de cocina",
+        "VolumenNegocio": "7"
+    },
+    {
+        "CodDepartamento": "FLO",
+        "DescDepartamento": "Departamento de floristeria",
+        "VolumenNegocio": "9"
+    },
+    {
+        "CodDepartamento": "INF",
+        "DescDepartamento": "Departamento de Informatica",
+        "VolumenNegocio": "1.5"
+    },
+    {
+        "CodDepartamento": "ING",
+        "DescDepartamento": "Departamento de Ingl\u00e9s",
+        "VolumenNegocio": "3.5"
+    },
+    {
+        "CodDepartamento": "LEN",
+        "DescDepartamento": "Departamento de Lengua",
+        "VolumenNegocio": "4.5"
+    },
+    {
+        "CodDepartamento": "MUS",
+        "DescDepartamento": "Departamento de Musica",
+        "VolumenNegocio": "1.5"
+    },
+    {
+        "CodDepartamento": "ODO",
+        "DescDepartamento": "Departamento de odontologia",
+        "VolumenNegocio": "10"
+    }
+]

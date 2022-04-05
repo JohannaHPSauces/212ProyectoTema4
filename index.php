@@ -206,16 +206,14 @@ strong a:hover{
 			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
 		  </tr>
 		  <tr>
-			<td>7. Página web que toma datos (código y descripción) de un fichero xml y los añade a la tabla Departamento de nuestra base de datos. (IMPORTAR). El fichero importado se encuentra en el
-directorio .../tmp/ del servidor.</td>
+			<td>7. IMPORTAR DEPARTAMENTOS JSON</td>
 			<td><a  href="codigoPHP/E6.php" >
 			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
 			<td><a  href="">
 			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
 		  </tr>
 		   <tr>
-			<td>8. Página web que toma datos (código y descripción) de la tabla Departamento y guarda en un
-fichero departamento.xml. </td>
+			<td>8. EXPORTAR DEPARTAMENTOS JSON </td>
                         <td><a  href="codigoPhp/Ejercicio08PDOJson.php" >
 			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
 			<td><a href="mostrarCodigo/mostrar08PDOJson.php" >

@@ -1,7 +1,7 @@
 <!Doctype HTML>
 <html>
     <head>
-        <title>Ejercicio 6</title>
+        <title>Ejercicio 7</title>
         <meta charset="UTF-8">
         <style>
         </style>
@@ -12,7 +12,7 @@
        <?php 
         /*
              * @author: Johanna Herrero Pozuelo
-             * Created on: 04/04/2022
+             * Created on: 05/04/2022
              * Exportar. Página web que toma datos (código y descripción) de la tabla Departamento y guarda en un fichero departamento.xml.
              */
        
@@ -33,9 +33,8 @@
             $oDepartamento = $resultadoConsulta->fetchObject();  //obtiene la siguiente fila y la devuelve como objeto. 
                 while ($oDepartamento){ 
                     $aDepartamento=[ "CodDepartamento" => $oDepartamento->T02_CodDepartamento,
-                                     "DescDepartamento" => $oDepartamento->T02_DescDepartamento,
-                                     "DescDepartamento" => $oDepartamento->T02_FechaCreacionDepartamento,
-                                     "VolumenNegocio" => $oDepartamento->T02_VolumenNegocio];
+                                      "DescDepartamento" => $oDepartamento->T02_DescDepartamento,
+                                      "VolumenNegocio" => $oDepartamento->T02_VolumenNegocio];
                     array_push($aDepartamentos, $aDepartamento);//sirve para meter erl array de departamentos en otro array
                     $oDepartamento = $resultadoConsulta->fetchObject();
                 }

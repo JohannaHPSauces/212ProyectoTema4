@@ -50,10 +50,12 @@
                 
             $oDepartamento = $resultadoConsulta->fetchObject();  //obtiene la siguiente fila y la devuelve como objeto. 
             while ($oDepartamento){   
+                $fechaCreacionDepartamento=$oDepartamento->T02_FechaCreacionDepartamento;
+                $date = date('d-m-Y H:i:s', $fechaCreacionDepartamento);
                 echo "<tr>";
                 echo "<td><p>$oDepartamento->T02_CodDepartamento </td>";           
                 echo "<td> $oDepartamento->T02_DescDepartamento </td>";
-                echo "<td> $oDepartamento->T02_FechaCreacionDepartamento </td>";
+                echo "<td> $date </td>";
                 echo "<td> $oDepartamento->T02_VolumenNegocio </td></p>";
                 echo "</tr>";
                 $oDepartamento = $resultadoConsulta->fetchObject();
