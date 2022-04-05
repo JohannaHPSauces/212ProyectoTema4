@@ -4,6 +4,18 @@
         <title>Ejercicio 5</title>
         <meta charset="UTF-8">
         <style>
+            table{
+                border: 2px white solid;
+                background: lightgoldenrodyellow;
+            }
+            td{
+                text-align: center;
+                border: 2px black solid;
+            }
+            th{
+                border: 2px black solid;
+                background: darkorchid;
+            }
         </style>
 
     </head>
@@ -39,13 +51,13 @@
             $consultaB3->execute();
             
             //Insertar 1
-            $consulta1=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_VolumenNegocio) VALUES ('COC', 'Departamento de cocina', 7)");
+            $consulta1=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES ('COC', 'Departamento de cocina',now(), 7)");
             
             //Insertar 2
-            $consulta2=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_VolumenNegocio) VALUES ('FLO', 'Departamento de floristeria', 9)"); 
+            $consulta2=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES ('FLO', 'Departamento de floristeria',now(), 9)"); 
             
             //Insertar 3
-            $consulta3=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_VolumenNegocio) VALUES ('ODO', 'Departamento de odontologia', 10)");
+            $consulta3=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES ('ODO', 'Departamento de odontologia',now(), 10)");
             
             //Ejecutamos las consultas
             $consulta1->execute();
@@ -67,6 +79,7 @@
                 echo "<tr>";
                     echo "<th> CODIGO DEPARTAMENTO</th>";
                     echo "<th> DESCRIPCION DEPARTAMENTO</th>";
+                    echo "<th> FECHA CREACION DEPARTAMENTO</th>";
                     echo "<th> VOLUMEN DEPARTAMENTO </th>";
                 echo "</tr>";
                 
@@ -75,6 +88,7 @@
                     echo "<tr>";
                     echo "<td><p>$oDepartamento->T02_CodDepartamento </td>";           
                     echo "<td> $oDepartamento->T02_DescDepartamento </td>";
+                    echo "<td> $oDepartamento->T02_FechaCreacionDepartamento </td>";
                     echo "<td> $oDepartamento->T02_VolumenNegocio </td></p>";
                     echo "</tr>";
                     $oDepartamento = $resultadoConsulta->fetchObject();

@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Ejercicio 3</title>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <style>
              h3{
                 font-weight: bold;
@@ -149,6 +149,7 @@ EOD;
                     echo "<tr>";
                         echo "<th> CODIGO DEPARTAMENTO</th>";
                         echo "<th> DESCRIPCION DEPARTAMENTO</th>";
+                        echo "<th> FECHA CREACION DEPARTAMENTO</th>";
                         echo "<th> VOLUMEN DEPARTAMENTO </th>";
                     echo "</tr>";
 
@@ -157,6 +158,7 @@ EOD;
                     echo "<tr>";
                     echo "<td><p>$oDepartamento->T02_CodDepartamento </td>";           
                     echo "<td> $oDepartamento->T02_DescDepartamento </td>";
+                    echo "<td> $oDepartamento->T02_FechaCreacionDepartamento </td>";
                     echo "<td> $oDepartamento->T02_VolumenNegocio </td></p>";
                     echo "</tr>";
                     $oDepartamento = $resultadoConsulta->fetchObject();

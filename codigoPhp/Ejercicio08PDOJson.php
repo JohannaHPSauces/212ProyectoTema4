@@ -27,7 +27,7 @@
             $resultadoConsulta = $miDB->prepare($consulta);//Preparamos la consulta
             $resultadoConsulta->execute();//Ejecutamos la consulta
            
-            //Array que contendra el array de deparatamentos
+            //Array que contendra el array de depatamento
             $aDepartamentos=[];
             
             $oDepartamento = $resultadoConsulta->fetchObject();  //obtiene la siguiente fila y la devuelve como objeto. 
@@ -42,7 +42,6 @@
             file_put_contents('../tmp/Departamentos.json', json_encode($aDepartamentos));
            
             echo "<p style='color: green;'>Exportación exitosa <p>";
-            
         }catch (PDOException $excepcion){
             $codigoError=$excepcion->getCode();//Obtenemos y guardamos el codigo del error
             $mensajeError=$excepcion->getMessage();//Obtenemos y guardamos el mensaje de error

@@ -26,11 +26,11 @@ INSERT INTO T01_Usuario(T01_CodUsuario, T01_Password, T01_DescUsuario, T01_Perfi
 
 -- Insertar datos en la tabla Departamento
 INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES
-    ('INF','Departamento de Informatica',1637700241,1.5),
-    ('BIO','Departamento de Biologia',1637700241,2.5),
-    ('ING','Departamento de Inglés',1637700241,3.5),
-    ('LEN','Departamento de Lengua',1637700241,4.5),
-    ('MUS','Departamento de Musica',1637700241,1.5);
+    ('INF','Departamento de Informatica',now(),1.5),
+    ('BIO','Departamento de Biologia',now(),2.5),
+    ('ING','Departamento de Inglés',now(),3.5),
+    ('LEN','Departamento de Lengua',now(),4.5),
+    ('MUS','Departamento de Musica',now(),1.5);
 
 -- Insertar datos en la tabla Cuestion
 INSERT INTO T03_Cuestion ( T03_CodCuestion, T03_DescCuestion, T03_NumOrden) VALUES

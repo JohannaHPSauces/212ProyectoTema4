@@ -21,9 +21,9 @@
         //Importamos la configuracion a la base de datos
         require_once '../config/confDBPDO.php';     
         
-        $aDepartamentos = [["CodDepartamento" => "PRO", "DescDepartamento" => "Departamento de programacion", "VolumenNegocio" => 12],
-                            ["CodDepartamento" => "PLA", "DescDepartamento" => "Departamento de plastica", "VolumenNegocio" => 20],
-                            ["CodDepartamento" => "MUS", "DescDepartamento" => "Departamento de musica", "VolumenNegocio" => 13]];
+        $aDepartamentos = [["T02_CodDepartamento" => "PRO", "T02_DescDepartamento" => "Departamento de programacion", "T02_VolumenNegocio" => 12],
+                            ["T02_CodDepartamento" => "PLA", "T02_DescDepartamento" => "Departamento de plastica", "T02_VolumenNegocio" => 20],
+                            ["T02_CodDepartamento" => "MUS", "T02_DescDepartamento" => "Departamento de musica", "T02_VolumenNegocio" => 13]];
                 
         echo "<h3>*Pagina web que cargue registros en la tabla Departamento desde un array departamentosnuevos utilizando una consulta preparada*</h3>";   
         //Departamentos a insertar
@@ -45,9 +45,9 @@
            
             //Recorremos los registros que vamos a insertar    
             foreach($aDepartamentos as $departamento){
-                    $parametros = [":CodDepartamento" => $departamento["CodDepartamento"], 
-                                   ":DescDepartamento" => $departamento["DescDepartamento"], 
-                                   ":VolumenNegocio" => $departamento["VolumenNegocio"]];
+                    $parametros = [":CodDepartamento" => $departamento["T02_CodDepartamento"], 
+                                   ":DescDepartamento" => $departamento["T02_DescDepartamento"], 
+                                   ":VolumenNegocio" => $departamento["T02_VolumenNegocio"]];
                     $resultadoConsulta->execute($parametros);//Ejecutamos la consulta
             }
             

@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>Johanna Herrero Pozuelo</title>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <style>
 	@import url('http://fonts.cdnfonts.com/css/04b30');
 	@import url('http://www.fontsaddict.com/fontface/mario-kart-ds-regular.ttf');
