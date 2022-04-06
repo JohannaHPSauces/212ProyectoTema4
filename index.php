@@ -144,10 +144,9 @@ strong a:hover{
                     <th>Borrar Desarrollo<a href="mostrarCodigo/mostrarSBorrado.php"><img src="../images/codigo.png" class="ver" width="40" height="40"></a></th>
                 </tr>
                 <tr>
-                    <th>Crear BD Explotacion<a href=""><img src="../images/ver.png" class="ver" width="40" height="40"></a><a href="" ><img src="../images/codigo.png" class="play" width="30" height="30" ></td></th>
-                    <th>Cargar Explotacion<a href=""><img src="../images/ver.png" class="ver" width="40" height="40"></a><a href=""><img src="../images/codigo.png" class="play" width="30" height="30" ></td></th>
-                    <th>Borrar Explotacion<a href=""><img src="../images/ver.png" class="ver" width="40" height="40"></a><a href=""><img src="../images/codigo.png" class="play" width="30" height="30" ></td></th>
-                    
+                    <th>Crear BD Explotacion<a href=""><img src="../images/ver.png" class="ver" width="40" height="40"></a><a href="mostrarCodigo/mostrarSCreacionEX.php" ><img src="../images/codigo.png" class="play" width="30" height="30" ></td></th>
+                    <th>Cargar Explotacion<a href=""><img src="../images/ver.png" class="ver" width="40" height="40"></a><a href="mostrarCodigo/mostrarSCargaEX.php"><img src="../images/codigo.png" class="play" width="30" height="30" ></td></th>
+                    <th>Borrar Explotacion<a href=""><img src="../images/ver.png" class="ver" width="40" height="40"></a><a href="mostrarCodigo/mostrarSBorradoEX.php"><img src="../images/codigo.png" class="play" width="30" height="30" ></td></th>
                 </tr>
             </table>
 		<table class="default">
@@ -207,9 +206,9 @@ strong a:hover{
 		  </tr>
 		  <tr>
 			<td>7. IMPORTAR DEPARTAMENTOS JSON</td>
-			<td><a  href="codigoPHP/E6.php" >
+                        <td><a  href="codigoPhp/Ejercicio07PDOJson.php" >
 			<img src="../images/ver.png" class="ver" width="40" height="40" ></td>
-			<td><a  href="">
+                        <td><a  href="mostrarCodigo/mostrar07PDOJson.php">
 			<img src="../images/codigo.png" class="play" width="30" height="30" ></td>
 		  </tr>
 		   <tr>

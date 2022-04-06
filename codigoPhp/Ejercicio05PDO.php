@@ -51,7 +51,7 @@
             $consultaB3->execute();
             
             //Insertar 1
-            $consulta1=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES ('COC', 'Departamento de cocina',1565600000, 7)");
+            $consulta1=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES ('COC', 'Departamento de cocina',1637700241, 7)");
             
             //Insertar 2
             $consulta2=$miDB->prepare("INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES ('FLO', 'Departamento de floristeria',1566600000, 9)"); 

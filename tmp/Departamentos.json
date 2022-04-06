@@ -1,52 +1,32 @@
 [
     {
-        "CodDepartamento": "AAA",
-        "DescDepartamento": "EEEE",
-        "VolumenNegocio": "32"
-    },
-    {
-        "CodDepartamento": "BIO",
+        "CodDepartamento": "hhh",
         "DescDepartamento": "Departamento de Biologia",
+        "FechaCreacionDepartamento": "1000190757",
         "VolumenNegocio": "2.5"
     },
     {
-        "CodDepartamento": "CIE",
-        "DescDepartamento": "Departamento de ciencia",
-        "VolumenNegocio": "22"
-    },
-    {
-        "CodDepartamento": "COC",
-        "DescDepartamento": "Departamento de cocina",
-        "VolumenNegocio": "7"
-    },
-    {
-        "CodDepartamento": "FLO",
-        "DescDepartamento": "Departamento de floristeria",
-        "VolumenNegocio": "9"
-    },
-    {
-        "CodDepartamento": "INF",
+        "CodDepartamento": "hhhg",
         "DescDepartamento": "Departamento de Informatica",
+        "FechaCreacionDepartamento": "1000190757",
         "VolumenNegocio": "1.5"
     },
     {
-        "CodDepartamento": "ING",
-        "DescDepartamento": "Departamento de Ingl\u00e9s",
+        "CodDepartamento": "ghn",
+        "DescDepartamento": "Departamento de Ingles",
+        "FechaCreacionDepartamento": "1000190757",
         "VolumenNegocio": "3.5"
     },
     {
-        "CodDepartamento": "LEN",
+        "CodDepartamento": "ghghgh",
         "DescDepartamento": "Departamento de Lengua",
+        "FechaCreacionDepartamento": "1000190757",
         "VolumenNegocio": "4.5"
     },
     {
-        "CodDepartamento": "MUS",
+        "CodDepartamento": "yuy",
         "DescDepartamento": "Departamento de Musica",
+        "FechaCreacionDepartamento": "1000190757",
         "VolumenNegocio": "1.5"
-    },
-    {
-        "CodDepartamento": "ODO",
-        "DescDepartamento": "Departamento de odontologia",
-        "VolumenNegocio": "10"
     }
 ]

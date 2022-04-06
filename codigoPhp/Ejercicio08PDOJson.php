@@ -10,7 +10,7 @@
     <body>
         
        <?php 
-        /*
+        /* 
              * @author: Johanna Herrero Pozuelo
              * Created on: 04/04/2022
              * Exportar. Página web que toma datos (código y descripción) de la tabla Departamento y guarda en un fichero departamento.xml.
@@ -32,14 +32,16 @@
             
             $oDepartamento = $resultadoConsulta->fetchObject();  //obtiene la siguiente fila y la devuelve como objeto. 
                 while ($oDepartamento){ 
-                    $aDepartamento=[ "CodDepartamento" => $oDepartamento->T02_CodDepartamento,
-                                     "DescDepartamento" => $oDepartamento->T02_DescDepartamento,
-                                     "DescDepartamento" => $oDepartamento->T02_FechaCreacionDepartamento,
-                                     "VolumenNegocio" => $oDepartamento->T02_VolumenNegocio];
+                    $aDepartamento=[ 'CodDepartamento' => $oDepartamento->T02_CodDepartamento,
+                                     'DescDepartamento' => $oDepartamento->T02_DescDepartamento,
+                                     'FechaCreacionDepartamento' => $oDepartamento->T02_FechaCreacionDepartamento,
+                                     'VolumenNegocio' => $oDepartamento->T02_VolumenNegocio];
+                    
                     array_push($aDepartamentos, $aDepartamento);//sirve para meter erl array de departamentos en otro array
                     $oDepartamento = $resultadoConsulta->fetchObject();
                 }
-            $archivoJSON= json_encode($aDepartamentos,JSON_PRETTY_PRINT);
+                
+            $archivoJSON= json_encode($aDepartamentos, JSON_PRETTY_PRINT);
             //Guarda lo del segundo parametro en el primero
             file_put_contents('../tmp/Departamentos.json', $archivoJSON );
            
@@ -51,7 +53,6 @@
             echo "<p style='background-color:red;'>Codigo de error: $codigoError</p>";   
             echo "<br>";
             echo "<p style='background-color:red;'>Mensaje de error: $mensajeError </p>";
-            echo "<p style='background-color:pink;'>LOS DEPARTAMENTOS PUEDEN ESTAR YA INSERTADOS</p>";
         }finally {
             unset($miDB);
         }

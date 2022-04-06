@@ -12,7 +12,7 @@
        <?php 
         /*
              * @author: Johanna Herrero Pozuelo
-             * Created on: 05/04/2022
+             * Created on: 06/04/2022
              * Exportar. Página web que toma datos (código y descripción) de la tabla Departamento y guarda en un fichero departamento.xml.
              */
        
@@ -23,24 +23,32 @@
             $miDB = new PDO(HOST,USER,PASSWORD);
             $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
-            $consulta = "SELECT * FROM T02_Departamento";
+            $consulta = <<<EOD
+                            INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_FechaCreacionDepartamento, T02_VolumenNegocio)
+                            VALUES (:CodDepartamento, :DescDepartamento, :FechaCreacionDepartamento, :VolumenNegocio);
+                        EOD;
             $resultadoConsulta = $miDB->prepare($consulta);//Preparamos la consulta
-            $resultadoConsulta->execute();//Ejecutamos la consulta
            
-            //Array que contendra el array de depatamento
-            $aDepartamentos=[];
+           
+            //Desactiva el modo 'autocommit'. Mientras el modo 'autocommit' esté desactivado, no se consignarán los cambios realizados en la base de datos
+            $miDB->beginTransaction();
             
-            $oDepartamento = $resultadoConsulta->fetchObject();  //obtiene la siguiente fila y la devuelve como objeto. 
-                while ($oDepartamento){ 
-                    $aDepartamento=[ "CodDepartamento" => $oDepartamento->T02_CodDepartamento,
-                                      "DescDepartamento" => $oDepartamento->T02_DescDepartamento,
-                                      "VolumenNegocio" => $oDepartamento->T02_VolumenNegocio];
-                    array_push($aDepartamentos, $aDepartamento);//sirve para meter erl array de departamentos en otro array
-                    $oDepartamento = $resultadoConsulta->fetchObject();
+            $archivoJSON= file_get_contents("../tmp/Departamentos.json");//obtener el fichero de la carpeta tmp
+            $aDepartamentos= json_decode($archivoJSON);//Descdificar el json
+            
+            
+            //$oDepartamento = $resultadoConsulta->fetchObject();  //obtiene la siguiente fila y la devuelve como objeto. 
+                foreach ($aDepartamentos as $valorDepartamento) {//Recorro el array de departamentos
+                    $resultadoConsulta->bindParam(':CodDepartamento', $valorDepartamento->  T02_CodDepartamento);
+                    $resultadoConsulta->bindParam(':DescDepartamento', $valorDepartamento->T02_DescDepartamento);
+                    $resultadoConsulta->bindParam(':FechaCreacionDepartamento', $valorDepartamento->T02_FechaCreacionDepartamento);
+                    $resultadoConsulta->bindParam(':VolumenNegocio', $valorDepartamento->T02_VolumenNegocio);
+                    
+                    $resultadoConsulta->execute();//Ejecutamos la consulta
                 }
-            $archivoJSON= json_encode($aDepartamentos,JSON_PRETTY_PRINT);
-            //Guarda lo del segundo parametro en el primero
-            file_put_contents('../tmp/Departamentos.json', $archivoJSON );
+                var_dump($resultadoConsulta);
+            //Hacemos commit para subir los cambios
+            $miDB->commit();
            
             echo "<h3 style='color: green;'>Exportación exitosa </h3>";
         }catch (PDOException $excepcion){
@@ -50,7 +58,6 @@
             echo "<p style='background-color:red;'>Codigo de error: $codigoError</p>";   
             echo "<br>";
             echo "<p style='background-color:red;'>Mensaje de error: $mensajeError </p>";
-            echo "<p style='background-color:pink;'>LOS DEPARTAMENTOS PUEDEN ESTAR YA INSERTADOS</p>";
         }finally {
             unset($miDB);
         }

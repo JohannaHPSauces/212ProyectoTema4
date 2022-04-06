@@ -47,7 +47,6 @@
                     echo "<th> FECHA CREACION DEPARTAMENTO</th>";
                     echo "<th> VOLUMEN DEPARTAMENTO </th>";
                 echo "</tr>";
-                
             $oDepartamento = $resultadoConsulta->fetchObject();  //obtiene la siguiente fila y la devuelve como objeto. 
             while ($oDepartamento){   
                 $fechaCreacionDepartamento=$oDepartamento->T02_FechaCreacionDepartamento;
