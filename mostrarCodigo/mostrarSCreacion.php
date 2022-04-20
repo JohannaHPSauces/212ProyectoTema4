@@ -1,3 +1,3 @@
 <?php
-    highlight_file("../scriptDB/CrearDAW212DBDepartamentosEX.php");
+    highlight_file("../scriptDB/CrearDAW212DBDepartamentos.sql");
 ?>
