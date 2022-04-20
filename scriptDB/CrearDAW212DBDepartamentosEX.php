@@ -29,14 +29,14 @@ try{
                             T02_VolumenNegocio float NOT NULL,
                             T02_FechaBajaDepartamento int NULL
                         )engine=innodb;
-                
+
                         CREATE TABLE IF NOT EXISTS T03_Cuestion(
                             T03_CodCuestion varchar(3) PRIMARY KEY,
                             T03_DescCuestion varchar(500) NOT NULL,
                             T03_NumOrden int,
                             T03_TipoRespuesta enum('si','no') DEFAULT 'no'
                         )engine=innodb;
-                
+
                         CREATE TABLE IF NOT EXISTS T04_Opinion(
                             T04_CodUsuario varchar(20),
                             T04_CodCuestion varchar(3),

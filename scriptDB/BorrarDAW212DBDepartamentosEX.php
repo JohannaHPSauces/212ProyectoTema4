@@ -10,11 +10,10 @@ try{
 
         //Consulta para realizar la insercion de los datos a partir del archivo xml
         $consulta = <<<CONSULTA
-                        DROP table IF EXISTS dbs4868809;
-                        DROP TABLE IF EXISTS T01_Usuario;
-                        DROP TABLE IF EXISTS T02_Departamento;
-                        DROP TABLE IF EXISTS T03_Cuestion;
-                        DROP TABLE IF EXISTS T04_Opinion;
+                        DROP TABLE IF EXISTS dbs4868809.T01_Usuario;
+                        DROP TABLE IF EXISTS dbs4868809.T02_Departamento;
+                        DROP TABLE IF EXISTS dbs4868809.T03_Cuestion;
+                        DROP TABLE IF EXISTS dbs4868809.T04_Opinion;
                     CONSULTA;
 
         $DB212DWESProyectoTema4->exec($consulta); //Ejecuto la consulta
