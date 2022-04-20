@@ -46,6 +46,7 @@
             $consultaB2=$miDB->prepare("DELETE FROM T02_Departamento WHERE T02_CodDepartamento='FLO'");
             $consultaB3=$miDB->prepare("DELETE FROM T02_Departamento WHERE T02_CodDepartamento='ODO'");
             
+            //Ejecutar las consultas
             $consultaB1->execute();
             $consultaB2->execute();       
             $consultaB3->execute();
@@ -111,7 +112,7 @@
                     echo "<p style='background-color:red;'>Mensaje de error: $mensajeError </p>";
                     echo "<p style='background-color:pink;'>LOS DEPARTAMENTOS PUEDEN ESTAR YA INSERTADOS</p>";
                 } finally {
-                    unset($miDB);
+                    unset($miDB);//Cerrar la conexion con la base de datos
                 }
             ?>
   

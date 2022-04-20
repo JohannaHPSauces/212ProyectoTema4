@@ -127,7 +127,7 @@
                         echo "<br>";
                         echo "<p style='background-color:red;'>Mensaje de error: $mensajeError </p>";
                     }finally {
-                        //Cerramos conexion
+                        //Cerramos conexion con la base de datos
                         unset($miDB);
                     }
                 }

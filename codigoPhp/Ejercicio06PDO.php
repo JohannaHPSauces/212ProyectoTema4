@@ -21,6 +21,7 @@
         //Importamos la configuracion a la base de datos
         require_once '../config/confDBPDO.php';     
         
+        //Array que contiene los datos de los nuevos departamentos
         $aDepartamentos = [["T02_CodDepartamento" => "PRO", "T02_DescDepartamento" => "Departamento de programacion", "T02_VolumenNegocio" => 12],
                             ["T02_CodDepartamento" => "PLA", "T02_DescDepartamento" => "Departamento de plastica", "T02_VolumenNegocio" => 20],
                             ["T02_CodDepartamento" => "MUS", "T02_DescDepartamento" => "Departamento de musica", "T02_VolumenNegocio" => 13]];
@@ -33,7 +34,6 @@
             $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             //Desactiva el modo 'autocommit'. Mientras el modo 'autocommit' esté desactivado, no se consignarán los cambios realizados en la base de datos
             $miDB->beginTransaction();
-            $consultaB3=$miDB->prepare("DELETE FROM T02_Departamento WHERE T02_CodDepartamento='ODO'");
             
             $consulta = <<<EOD
                         INSERT INTO T02_Departamento (T02_CodDepartamento, T02_DescDepartamento, T02_VolumenNegocio) VALUES 

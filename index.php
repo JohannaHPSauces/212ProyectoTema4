@@ -39,14 +39,14 @@ h2:nth-of-type(2){
         border-radius: 50%;
 }
 h2:nth-of-type(2) a{
-    text-decoration: none;
-    color:red;
+        text-decoration: none;
+        color:red;
 }
 /*caja debajo de titulo*/
 			
 .ver, .play{
-    margin-left:25px;
-    display: inline-block;
+        margin-left:25px;
+        display: inline-block;
 }
 
 table {
@@ -107,26 +107,26 @@ strong a:hover{
         font-size: 32px;
 }
 .t2:hover{
-    background:green;
-    color: fuchsia;
+        background:green;
+        color: fuchsia;
 }
 #especial{
-    color:yellow;
-    font-size: 20px;
+        color:yellow;
+        font-size: 20px;
 }
 .t2{
-    margin-top: 40px;
-    background: darkblue;
-    text-align: center;
-    font-size: 32px;
+        margin-top: 40px;
+        background: darkblue;
+        text-align: center;
+        font-size: 32px;
 }
 .t2 a{
-    text-decoration: none;
-    color: white;
+        text-decoration: none;
+        color: white;
 }
 .t2:hover{
-    background:green;
-    color: fuchsia;
+        background:green;
+        color: fuchsia;
 }
 		</style>
     </head>

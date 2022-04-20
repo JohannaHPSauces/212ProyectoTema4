@@ -14,6 +14,7 @@
              * @author: Johanna Herrero Pozuelo
              * Created on: 04/04/2022
              * Exportar. Página web que toma datos (código y descripción) de la tabla Departamento y guarda en un fichero departamento.xml.
+             * CODIGO DE ISABEL
              */
        
         //Importamos la configuracion a la base de datos
@@ -32,15 +33,17 @@
             
             $oDepartamento = $resultadoConsulta->fetchObject();  //obtiene la siguiente fila y la devuelve como objeto. 
                 while ($oDepartamento){ 
-                    $aDepartamento=[ 'CodDepartamento' => $oDepartamento->T02_CodDepartamento,
-                                     'DescDepartamento' => $oDepartamento->T02_DescDepartamento,
-                                     'FechaCreacionDepartamento' => $oDepartamento->T02_FechaCreacionDepartamento,
-                                     'VolumenNegocio' => $oDepartamento->T02_VolumenNegocio];
+                    $aDepartamento= [ 'CodDepartamento' => $oDepartamento->T02_CodDepartamento,
+                                      'DescDepartamento' => $oDepartamento->T02_DescDepartamento,
+                                      'FechaCreacionDepartamento' => $oDepartamento->T02_FechaCreacionDepartamento,
+                                      'VolumenNegocio' => $oDepartamento->T02_VolumenNegocio
+                                    ];
                     
                     array_push($aDepartamentos, $aDepartamento);//sirve para meter erl array de departamentos en otro array
                     $oDepartamento = $resultadoConsulta->fetchObject();
                 }
-                
+            
+            //Damos formato json al array
             $archivoJSON= json_encode($aDepartamentos, JSON_PRETTY_PRINT);
             //Guarda lo del segundo parametro en el primero
             file_put_contents('../tmp/Departamentos.json', $archivoJSON );

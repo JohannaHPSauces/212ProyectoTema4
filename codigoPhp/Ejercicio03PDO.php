@@ -61,6 +61,7 @@
         
         echo "<h3>*Formulario para añadir un departamento a la tabla Departamento con validación de entrada y control de errores.*</h3>";   
         
+        //Defino una variable que cambiare en funcion de si las cosas vayan bien o no
         $entradaOK = true;                                     
         
         //Array para los errores
