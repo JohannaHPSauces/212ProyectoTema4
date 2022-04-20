@@ -10,10 +10,9 @@ try{
 
         //Consulta para realizar la insercion de los datos a partir del archivo xml
         $consulta = <<<CONSULTA
+                        SET FOREIGN_KEY_CHECKS=0; DROP TABLE dbs4868809.T03_Cuestion; DROP TABLE dbs4868809.T04_Opinion; SET FOREIGN_KEY_CHECKS=1;
                         DROP TABLE IF EXISTS dbs4868809.T01_Usuario;
                         DROP TABLE IF EXISTS dbs4868809.T02_Departamento;
-                        DROP TABLE IF EXISTS dbs4868809.T03_Cuestion;
-                        DROP TABLE IF EXISTS dbs4868809.T04_Opinion;
                     CONSULTA;
 
         $DB212DWESProyectoTema4->exec($consulta); //Ejecuto la consulta
