@@ -228,7 +228,7 @@ strong a:hover{
         </main>
          <footer>
         2021-2022 I.E.S. Los sauces. ©Todos los derechos reservados. <strong> <a href="http://daw212.sauces.local/">Johanna Herrero Pozuelo</a></strong>
-            <a href="https://github.com/JohannaHPSauces/212ProyectoTema3" target="blank"><img src="../images/git.png" alt="" class="git"></a>
+            <a href="https://github.com/JohannaHPSauces/212ProyectoTema4" target="blank"><img src="../images/git.png" alt="" class="git"></a>
         </footer>	
     </body>
 </html>
